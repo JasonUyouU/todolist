@@ -8,27 +8,49 @@ document.getElementById('add').addEventListener('click', function() {
 	var value = document.getElementById('item').value;
 
 	if (value) {
-		addItemToDo(value);
-		document.getElementById('item').value = '';
-	} 
+		addItem(value);
+	}
 });
+
+document.getElementById('item').addEventListener('keydown', function (e) {
+	var value = this.value;
+
+	if (e.code === 'Enter' && value) {
+		addItem(value)
+	}
+})
+
+function addItem(value) {
+	addItemToDo(value);
+	document.getElementById('item').value = '';
+}
 
 function removeItem() {
 	var item = this.parentNode.parentNode;
 	var parent = item.parentNode;
 
 	parent.removeChild(item);
+
 }
 
 function completeItem() {
 	var item = this.parentNode.parentNode;
 	var parent = item.parentNode;
 	var id = parent.id;
+	var value = item.innerText;
+
+	var target;
 
 	if (id === 'todo') {
 		//it's a todo item to be completed
+		target = document.getElementById('completed');
+		parent.removeChild(item);
+		target.insertBefore(item, target.childNodes[0]);
 	} else {
 		//it's a completed item to be uncompleted
+		target = document.getElementById('todo');
+		parent.removeChild(item);
+		target.insertBefore(item, target.childNodes[0]);
 	}
 }
 
