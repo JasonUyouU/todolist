@@ -59,7 +59,7 @@ function addItemToDo(text) {
 
 	var item = document.createElement('li');
 	item.innerText = text;
-
+	item.className += "animated fadeInUp"
 	var buttons = document.createElement('div');
 	buttons.classList.add('buttons');
 
@@ -80,6 +80,5 @@ function addItemToDo(text) {
 	buttons.appendChild(remove);
 	buttons.appendChild(complete);
 	item.appendChild(buttons);
-
 	list.appendChild(item);
 }
