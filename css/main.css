@@ -199,12 +199,12 @@ ul.todo#completed:before {
 }
 
 ul.todo#todo:empty:after {
-	content: 'Your to-do list';
+	content: 'To Do Items';
 	margin-top: 15px;
 }
 
 ul.todo#completed:empty:after {
-	content: 'Your completed tasks';
+	content: 'Completed Tasks';
 }
 
 ul.todo#todo:after,
